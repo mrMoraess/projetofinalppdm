@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Escolha o Serviço</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item 
+      *ngFor="let servico of servicos" 
+      (click)="selecionarServico(servico)" 
+      button 
+      detail
+    >
+      <ion-label>
+        <h2>{{ servico.nome }}</h2>
+        <p>{{ servico.descricao }}</p>
+      </ion-label>
+
+      <ion-note slot="end" color="primary">
+        {{ servico.preco | currency:'BRL' }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

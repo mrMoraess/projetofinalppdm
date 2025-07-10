@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Meus Horários</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div *ngIf="agendamentos.length === 0" class="ion-text-center">
+    <p>Você ainda não possui agendamentos.</p>
+  </div>
+
+  <ion-card *ngFor="let ag of agendamentos">
+    <ion-card-header>
+      <ion-card-title>{{ ag.dataHora | date:'dd/MM/yyyy \'às\' HH:mm' }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Serviço:</strong> {{ ag.servico.nome }}</p>
+      <p><strong>Barbeiro:</strong> {{ ag.barbeiro.nome }}</p>
+      <ion-note color="primary">{{ ag.servico.preco | currency:'BRL' }}</ion-note>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

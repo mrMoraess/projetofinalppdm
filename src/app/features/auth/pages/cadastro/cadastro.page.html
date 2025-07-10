@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/features/auth/pages/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Crie sua Conta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="cadastro-container">
+    <h2 class="ion-text-center">É rápido e fácil!</h2>
+
+    <ion-list>
+      <ion-item>
+        <ion-input
+          label="Nome Completo"
+          labelPlacement="floating"
+          type="text"
+          [(ngModel)]="nome"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Email"
+          labelPlacement="floating"
+          type="email"
+          [(ngModel)]="email"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Senha"
+          labelPlacement="floating"
+          type="password"
+          [(ngModel)]="senha"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Confirmar Senha"
+          labelPlacement="floating"
+          type="password"
+          [(ngModel)]="confirmarSenha"
+          required
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button 
+      expand="block" 
+      class="ion-margin-top" 
+      (click)="fazerCadastro()"
+    >
+      Cadastrar
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="clear"
+      color="medium"
+      [routerLink]="['/features/auth/pages/login']"
+    >
+      Já tem uma conta? Faça o login
+    </ion-button>
+  </div>
+</ion-content>

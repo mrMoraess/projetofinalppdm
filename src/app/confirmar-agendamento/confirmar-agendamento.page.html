@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/escolher-data-hora"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirme seu Agendamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Resumo Final</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="agendamento.servico">
+      <p><strong>Serviço:</strong> {{ agendamento.servico.nome }}</p>
+      <p><strong>Preço:</strong> {{ agendamento.servico.preco | currency:'BRL' }}</p>
+      <p><strong>Barbeiro:</strong> {{ agendamento.barbeiro.nome }}</p>
+      <p><strong>Data e Hora:</strong> {{ agendamento.dataHora | date:'dd/MM/yyyy HH:mm' }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="success" class="ion-margin-top" (click)="finalizar()">
+    <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+    Confirmar Agendamento
+  </ion-button>
+</ion-content>

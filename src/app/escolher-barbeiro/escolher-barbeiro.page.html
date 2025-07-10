@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/agendar"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Escolha o Barbeiro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div *ngIf="servicoSelecionado">
+    <p class="ion-text-center">Você selecionou: <strong>{{ servicoSelecionado.nome }}</strong></p>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let barbeiro of barbeiros" button detail (click)="selecionarBarbeiro(barbeiro)">
+      <ion-avatar slot="start">
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ barbeiro.nome }}</h2>
+        <p>{{ barbeiro.especialidade }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

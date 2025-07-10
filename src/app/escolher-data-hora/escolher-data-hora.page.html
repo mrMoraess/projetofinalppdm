@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/escolher-barbeiro"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Escolha Data e Hora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Resumo do Agendamento</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="servicoSelecionado && barbeiroSelecionado">
+      <p><strong>Serviço:</strong> {{ servicoSelecionado.nome }}</p>
+      <p><strong>Barbeiro:</strong> {{ barbeiroSelecionado.nome }}</p>
+      
+      <hr>
+
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+      <div *ngIf="dataHoraSelecionada" class="data-hora-selecionada">
+        <p><strong>Data e Hora Selecionada:</strong></p> 
+        <p class="data-hora-valor">{{ dataHoraSelecionada | date:'dd/MM/yyyy \'às\' HH:mm' }}</p>
+      </div>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime
+        id="datetime"
+        presentation="date-time"
+        (ionChange)="selecionarDataHora($event)"  
+        [showDefaultButtons]="true"
+        doneText="OK"
+        cancelText="Cancelar"
+      ></ion-datetime>
+    </ng-template>
+  </ion-modal>
+  
+  <ion-button 
+    *ngIf="dataHoraSelecionada" 
+    expand="block" 
+    class="ion-margin-top"
+    (click)="avancarParaConfirmacao()"
+  >
+    Prosseguir para Confirmação
+  </ion-button>
+
+</ion-content>

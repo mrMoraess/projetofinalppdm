@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">BarberTime - Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="login-container">
+    <h2 class="ion-text-center">Bem-vindo de volta!</h2>
+
+    <ion-list>
+      <ion-item>
+        <ion-input
+          label="Email"
+          labelPlacement="floating"
+          type="email"
+          placeholder="seuemail@exemplo.com"
+          required
+          [(ngModel)]="email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Senha"
+          labelPlacement="floating"
+          type="password"
+          placeholder="Digite sua senha"
+          required
+          [(ngModel)]="senha"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" class="ion-margin-top" (click)="fazerLogin()">
+      Entrar
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="clear"
+      color="medium"
+      [routerLink]="['/features/auth/pages/cadastro']"
+    >
+      Não tem uma conta? Cadastre-se
+    </ion-button>
+  </div>
+</ion-content>

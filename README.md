@@ -52,7 +52,7 @@ Como Executar o Projeto Clone o repositório:
 
 Bash
 
-git clone https://github.com/PedroHFMessias/projeto-final-dpm.git Navegue até a pasta do projeto:
+git clone https://github.com/mrMoraess/projetofinalppdm.git Navegue até a pasta do projeto:
 
 Bash
 
